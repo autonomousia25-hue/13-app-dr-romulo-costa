@@ -497,12 +497,12 @@ function App() {
               <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6 font-medium text-justify">
                 Odontologia estética e reabilitação de alto padrão, com foco absoluto no bem-estar e conforto do paciente.
               </p>
-              <div className="inline-flex flex-col items-center md:items-start gap-4 mt-auto">
+              <div className="inline-flex flex-col items-center self-center md:self-start gap-4 mt-auto">
                 <a href="https://instagram.com/drromulocosta" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-primary font-bold text-[15px] hover:text-primaryDark transition-colors">
                   <InstagramIcon size={20} />
                   Seguir no Instagram @dr.romulocosta
                 </a>
-                <div className="bg-white p-3 rounded-2xl shadow-sm border border-gray-100 self-center md:self-start md:ml-2">
+                <div className="bg-white p-3 rounded-2xl shadow-sm border border-gray-100">
                   <QRCode value="https://instagram.com/drromulocosta" size={120} fgColor="#0F3443" />
                 </div>
               </div>

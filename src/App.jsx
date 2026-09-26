@@ -410,7 +410,7 @@ function App() {
       </section>
 
       {/* Dicas do Dr. Rômulo */}
-      <section id="dicas" className="py-24 bg-gradient-to-b from-primaryLight/10 to-white border-t border-primaryLight/20 relative">
+      <section id="dicas" className="pt-24 pb-8 bg-gradient-to-b from-primaryLight/10 to-white border-t border-primaryLight/20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
             initial="hidden"
@@ -483,7 +483,7 @@ function App() {
       </section>
 
       {/* Footer Completo */}
-      <footer ref={footerRef} id="contato" className="bg-background relative pt-16 pb-4">
+      <footer ref={footerRef} id="contato" className="bg-background relative pt-8 pb-4">
         {/* Transição suave do fundo sem adicionar espaço extra */}
         <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-white to-transparent pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

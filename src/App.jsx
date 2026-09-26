@@ -75,6 +75,18 @@ const staggerContainer = {
 function App() {
   const [selectedImage, setSelectedImage] = React.useState(null);
 
+  const getWhatsAppLink = () => {
+    const hour = new Date().getHours();
+    let greeting = "Bom dia";
+    if (hour >= 12 && hour < 18) {
+      greeting = "Boa tarde";
+    } else if (hour >= 18) {
+      greeting = "Boa noite";
+    }
+    const message = `${greeting}! Gostaria de agendar uma avaliação.`;
+    return `https://api.whatsapp.com/send?phone=5512974071990&text=${encodeURIComponent(message)}`;
+  };
+
   const provaTecnica = [
     "/prova-tecnica/drromulocosta_1729605338_3484504590017691916_10853754012.jpg",
     "/prova-tecnica/drromulocosta_1729605338_3484504589942219133_10853754012.jpg",
@@ -127,7 +139,7 @@ function App() {
               <motion.a 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://api.whatsapp.com/send?phone=5512974071990" 
+                href={getWhatsAppLink()} 
                 target="_blank" 
                 rel="noreferrer" 
                 className="bg-gradient-to-r from-primary to-primaryDark text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 flex items-center gap-2 min-h-[48px] overflow-hidden relative group"
@@ -179,7 +191,7 @@ function App() {
                 <motion.a 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  href="https://api.whatsapp.com/send?phone=5512974071990" 
+                  href={getWhatsAppLink()} 
                   target="_blank" 
                   rel="noreferrer" 
                   className="flex-1 group relative flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primaryDark text-white px-4 py-4 rounded-full font-bold text-[1.05rem] md:text-lg shadow-xl shadow-primary/30 overflow-hidden"
@@ -482,7 +494,7 @@ function App() {
                 </li>
                 <li className="flex justify-between border-b border-gray-200 pb-3">
                   <span>WhatsApp</span> 
-                  <a href="https://api.whatsapp.com/send?phone=5512974071990" target="_blank" rel="noreferrer" className="font-bold text-primaryDark hover:text-primary transition-colors hover:underline">(12) 97407-1990</a>
+                  <a href={getWhatsAppLink()} target="_blank" rel="noreferrer" className="font-bold text-primaryDark hover:text-primary transition-colors hover:underline">(12) 97407-1990</a>
                 </li>
               </ul>
             </div>
@@ -506,7 +518,7 @@ function App() {
         transition={{ delay: 1, type: "spring", stiffness: 200, damping: 10 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        href="https://api.whatsapp.com/send?phone=5512974071990" 
+        href={getWhatsAppLink()} 
         target="_blank" 
         rel="noreferrer" 
         className="fixed bottom-24 md:bottom-6 right-4 md:right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 flex items-center justify-center group"

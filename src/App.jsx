@@ -36,6 +36,26 @@ const ToothSparkleIcon = ({ size = 24, strokeWidth = 1.5, className = "" }) => (
     <path d="M18 1c0 2.5 1.5 4 4 4-2.5 0-4 1.5-4 4 0-2.5-1.5-4-4-4 2.5 0 4-1.5 4-4z" />
   </svg>
 );
+const MaskedIcon = ({ src, size = 32, className = "" }) => (
+  <div 
+    className={`inline-block ${className}`}
+    style={{
+      width: size,
+      height: size,
+      WebkitMaskImage: `url(${src})`,
+      WebkitMaskSize: 'contain',
+      WebkitMaskRepeat: 'no-repeat',
+      WebkitMaskPosition: 'center',
+      backgroundColor: 'currentColor'
+    }}
+  />
+);
+
+const OrtodontiaIcon = (props) => <MaskedIcon src="/tratamentos/ortodontia.png" {...props} />;
+const ImplantesIcon = (props) => <MaskedIcon src="/tratamentos/implantes.png" {...props} />;
+const EndodontiaIcon = (props) => <MaskedIcon src="/tratamentos/endodontia.png" {...props} />;
+const ProtesesIcon = (props) => <MaskedIcon src="/tratamentos/proteses.png" {...props} />;
+const ClinicoGeralIcon = (props) => <MaskedIcon src="/tratamentos/clinico-geral.png" {...props} />;
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -232,12 +252,12 @@ function App() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {[
-              { icon: Activity, title: "Ortodontia", desc: "Aparelhos modernos e discretos para um sorriso simétrico e perfeito no menor tempo possível." },
-              { icon: ShieldCheck, title: "Implantes", desc: "Recupere sua mastigação e estética com implantes altamente seguros, previsíveis e duradouros." },
+              { icon: OrtodontiaIcon, title: "Ortodontia", desc: "Aparelhos modernos e discretos para um sorriso simétrico e perfeito no menor tempo possível." },
+              { icon: ImplantesIcon, title: "Implantes", desc: "Recupere sua mastigação e estética com implantes altamente seguros, previsíveis e duradouros." },
               { icon: ToothSparkleIcon, title: "Clareamento", desc: "Técnicas avançadas para dentes brancos e iluminados, priorizando sua segurança e conforto." },
-              { icon: HeartPulse, title: "Endodontia", desc: "Tratamento de canal moderno, rápido e humanizado, priorizando sempre o alívio imediato da dor." },
-              { icon: CheckCircle, title: "Próteses", desc: "Reabilitação oral completa com materiais de alta estética que devolvem a naturalidade do sorriso." },
-              { icon: PlusCircle, title: "Clínico Geral", desc: "Foco na prevenção, limpeza profissional e manutenção contínua para sua saúde bucal em longo prazo." }
+              { icon: EndodontiaIcon, title: "Endodontia", desc: "Tratamento de canal moderno, rápido e humanizado, priorizando sempre o alívio imediato da dor." },
+              { icon: ProtesesIcon, title: "Próteses", desc: "Reabilitação oral completa com materiais de alta estética que devolvem a naturalidade do sorriso." },
+              { icon: ClinicoGeralIcon, title: "Clínico Geral", desc: "Foco na prevenção, limpeza profissional e manutenção contínua para sua saúde bucal em longo prazo." }
             ].map((item, i) => (
               <motion.div key={i} variants={fadeUp} whileHover={{ y: -5 }} className="bg-white p-8 rounded-[1.5rem] shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary/30 transition-all group flex flex-col justify-start">
                 <div className="flex items-center gap-4 mb-4">

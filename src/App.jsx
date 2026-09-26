@@ -274,23 +274,10 @@ function App() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+            className="text-center mb-16"
           >
-            <div>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-primaryDark mb-3">Sorrisos Transformados</h2>
-              <p className="text-textPrimary/70 text-lg">Confira alguns dos resultados clínicos incríveis que realizamos em nossa clínica.</p>
-            </div>
-            <motion.a 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="https://instagram.com/drromulocosta" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="flex items-center gap-2 bg-gradient-to-r from-primaryLight/30 to-primaryLight/10 text-primary px-8 py-4 rounded-full font-bold hover:bg-primary hover:text-white transition-all shadow-sm"
-            >
-              <InstagramIcon size={20} />
-              Mais no Instagram
-            </motion.a>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-primaryDark mb-3">Sorrisos Transformados</h2>
+            <p className="text-textPrimary/70 text-lg">Confira alguns dos resultados clínicos incríveis que realizamos em nossa clínica.</p>
           </motion.div>
           
           <motion.div 
@@ -312,6 +299,25 @@ function App() {
               </motion.div>
             ))}
           </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mt-12 flex justify-center"
+          >
+            <motion.a 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="https://instagram.com/drromulocosta" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="flex items-center gap-2 bg-gradient-to-r from-primaryLight/30 to-primaryLight/10 text-primary px-8 py-4 rounded-full font-bold hover:bg-primary hover:text-white transition-all shadow-sm"
+            >
+              <InstagramIcon size={20} />
+              Mais no Instagram
+            </motion.a>
+          </motion.div>
         </div>
       </section>
 
@@ -323,7 +329,7 @@ function App() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="text-center max-w-3xl mx-auto mb-16"
+            className="text-center max-w-4xl mx-auto mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-extrabold text-primaryDark mb-4">Dicas de Ouro para o seu Sorriso</h2>
             <p className="text-textPrimary/70 text-lg">Informações valiosas e práticas que ajudam você a cuidar melhor da sua saúde bucal no dia a dia.</p>

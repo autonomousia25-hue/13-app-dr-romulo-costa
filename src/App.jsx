@@ -483,8 +483,9 @@ function App() {
       </section>
 
       {/* Footer Completo */}
-      <div className="w-full h-32 bg-gradient-to-b from-white to-background"></div>
-      <footer ref={footerRef} id="contato" className="bg-background pt-4 pb-4">
+      <footer ref={footerRef} id="contato" className="bg-background relative pt-16 pb-4">
+        {/* Transição suave do fundo sem adicionar espaço extra */}
+        <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-white to-transparent pointer-events-none"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-12 gap-12 mb-8">
             

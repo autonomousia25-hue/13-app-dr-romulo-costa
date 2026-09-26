@@ -1,7 +1,7 @@
 import React from 'react';
 import { Phone, ShieldCheck, HeartPulse, ChevronRight, CheckCircle, Clock, MapPin, ArrowRight, Sparkles, Activity, PlusCircle, Award, Image, Home, Lightbulb } from 'lucide-react';
 import QRCode from "react-qr-code";
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 const InstagramIcon = ({ size = 24, className = "" }) => (
   <svg className={className} xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -97,6 +97,8 @@ const staggerContainer = {
 };
 
 function App() {
+  const footerRef = React.useRef(null);
+  const footerInView = useInView(footerRef, { amount: 0.1 });
   const [selectedImage, setSelectedImage] = React.useState(null);
   const [lgpdAccepted, setLgpdAccepted] = React.useState(() => {
     if (typeof window !== "undefined") {
@@ -143,7 +145,7 @@ function App() {
       {/* Navbar (Nielsen Heuristics: Clear Navigation & Consistency) */}
       <motion.nav 
         initial={{ y: -100 }}
-        animate={{ y: 0 }}
+        animate={{ y: footerInView ? -100 : 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="w-full bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50"
       >
@@ -481,7 +483,7 @@ function App() {
       </section>
 
       {/* Footer Completo */}
-      <footer id="contato" className="bg-background border-t border-gray-200 pt-16 pb-4">
+      <footer ref={footerRef} id="contato" className="bg-background border-t border-gray-200 pt-16 pb-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-12 gap-12 mb-8">
             

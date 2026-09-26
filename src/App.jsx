@@ -88,7 +88,7 @@ function App() {
               >
                 <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
                 <Phone size={18} className="animate-pulse" />
-                (12) 97407-1990
+                Agendar Avaliação
               </motion.a>
             </div>
           </div>

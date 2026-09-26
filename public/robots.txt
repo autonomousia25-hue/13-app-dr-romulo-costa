@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Citation bots (GEO Requirements)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Block AI scrapers from generic training while allowing citations
+User-agent: GPTBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /

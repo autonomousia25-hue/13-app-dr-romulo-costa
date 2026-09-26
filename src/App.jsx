@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, ShieldCheck, HeartPulse, ChevronRight, CheckCircle, Clock, MapPin, ArrowRight, Sparkles, Activity, PlusCircle, Award, Image, Home } from 'lucide-react';
+import { Phone, ShieldCheck, HeartPulse, ChevronRight, CheckCircle, Clock, MapPin, ArrowRight, Sparkles, Activity, PlusCircle, Award, Image, Home, Lightbulb } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const InstagramIcon = ({ size = 24, className = "" }) => (
@@ -74,6 +74,17 @@ const staggerContainer = {
 
 function App() {
   const [selectedImage, setSelectedImage] = React.useState(null);
+  const [lgpdAccepted, setLgpdAccepted] = React.useState(() => {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("lgpd") === "true";
+    }
+    return false;
+  });
+
+  const acceptLgpd = () => {
+    localStorage.setItem("lgpd", "true");
+    setLgpdAccepted(true);
+  };
 
   const getWhatsAppLink = () => {
     const hour = new Date().getHours();
@@ -169,7 +180,7 @@ function App() {
               variants={staggerContainer}
               className="max-w-2xl"
             >
-              <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primaryDark leading-[1.1] mb-6">
+              <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primaryDark leading-[1.1] mb-6 text-center">
                 Você é feliz com o <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primaryDark">seu sorriso?</span>
               </motion.h1>
               
@@ -204,7 +215,7 @@ function App() {
                 </div>
               </motion.div>
               
-              <motion.div variants={fadeUp} className="mt-8 flex items-center gap-8 text-sm font-semibold text-textPrimary/70">
+              <motion.div variants={fadeUp} className="mt-8 lg:mt-16 flex justify-center items-center gap-8 text-sm font-semibold text-textPrimary/70">
                 <div className="flex items-center gap-3 group">
                   <div className="p-2.5 bg-white rounded-full shadow-md group-hover:scale-110 transition-transform"><ShieldCheck size={20} className="text-primary" /></div>
                   Atendimento Premium
@@ -526,12 +537,27 @@ function App() {
         <WhatsAppIcon size={28} className="relative z-10" />
       </motion.a>
 
+      {/* LGPD Banner */}
+      <AnimatePresence>
+        {!lgpdAccepted && (
+          <motion.div 
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 100, opacity: 0 }}
+            className="fixed bottom-[80px] md:bottom-4 left-0 right-0 md:left-4 md:right-auto md:w-full md:max-w-md bg-white border border-gray-200 shadow-2xl p-4 md:rounded-2xl z-[60] flex flex-col gap-3"
+          >
+            <p className="text-xs md:text-sm text-textPrimary/80">
+              Utilizamos cookies para melhorar sua experiência e direcionar conteúdos do seu interesse. Ao continuar navegando, você concorda com a nossa política de privacidade.
+            </p>
+            <button onClick={acceptLgpd} className="w-full bg-[#3e6b72] text-white text-sm font-bold py-2.5 rounded-lg hover:bg-[#32575c] transition-colors">
+              Aceitar e fechar
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Mobile Bottom Tab Bar */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 z-50 px-2 py-2 flex justify-between items-center shadow-[0_-10px_30px_rgba(0,0,0,0.08)] pb-safe">
-        <a href="#" className="flex flex-col items-center gap-1 text-primary hover:text-primaryDark p-2 flex-1">
-          <Home size={22} strokeWidth={2} />
-          <span className="text-[10px] font-bold tracking-tight">Início</span>
-        </a>
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 z-50 px-2 py-2 flex justify-between items-end shadow-[0_-10px_30px_rgba(0,0,0,0.08)] pb-safe">
         <a href="#tratamentos" className="flex flex-col items-center gap-1 text-textPrimary/40 hover:text-primary p-2 flex-1">
           <Activity size={22} strokeWidth={2} />
           <span className="text-[10px] font-bold tracking-tight">Tratamentos</span>
@@ -540,13 +566,19 @@ function App() {
           <Award size={22} strokeWidth={2} />
           <span className="text-[10px] font-bold tracking-tight">Diferenciais</span>
         </a>
-        <a href="#galeria" className="flex flex-col items-center gap-1 text-textPrimary/40 hover:text-primary p-2 flex-1">
-          <Image size={22} strokeWidth={2} />
-          <span className="text-[10px] font-bold tracking-tight">Galeria</span>
+        <a href={getWhatsAppLink()} target="_blank" rel="noreferrer" className="flex flex-col items-center gap-1 flex-1 relative -top-3">
+          <div className="bg-[#25D366] text-white p-3.5 rounded-full shadow-lg shadow-[#25D366]/40 flex items-center justify-center">
+            <WhatsAppIcon size={24} />
+          </div>
+          <span className="text-[10px] font-bold tracking-tight text-[#25D366]">Agendar</span>
         </a>
-        <a href="#contato" className="flex flex-col items-center gap-1 text-textPrimary/40 hover:text-primary p-2 flex-1">
-          <Phone size={22} strokeWidth={2} />
-          <span className="text-[10px] font-bold tracking-tight">Contato</span>
+        <a href="#casos-clinicos" className="flex flex-col items-center gap-1 text-textPrimary/40 hover:text-primary p-2 flex-1">
+          <Image size={22} strokeWidth={2} />
+          <span className="text-[10px] font-bold tracking-tight">Casos</span>
+        </a>
+        <a href="#dicas" className="flex flex-col items-center gap-1 text-textPrimary/40 hover:text-primary p-2 flex-1">
+          <Lightbulb size={22} strokeWidth={2} />
+          <span className="text-[10px] font-bold tracking-tight">Dicas</span>
         </a>
       </div>
 

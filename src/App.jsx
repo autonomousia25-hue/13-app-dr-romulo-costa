@@ -1,5 +1,13 @@
 import React from 'react';
-import { Phone, ShieldCheck, HeartPulse, Smile, ChevronRight, CheckCircle, Clock, MapPin, Instagram, ArrowRight, Sparkles, Activity } from 'lucide-react';
+import { Phone, ShieldCheck, HeartPulse, Smile, ChevronRight, CheckCircle, Clock, MapPin, ArrowRight, Sparkles, Activity } from 'lucide-react';
+
+const InstagramIcon = ({ size = 24 }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+  </svg>
+);
 
 function App() {
 
@@ -213,7 +221,7 @@ function App() {
               <p className="text-textPrimary/70 text-lg">Confira alguns dos resultados clínicos incríveis que realizamos em nossa clínica.</p>
             </div>
             <a href="https://instagram.com/drromulocosta" target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-primaryLight/20 text-primary px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">
-              <Instagram size={20} />
+              <InstagramIcon size={20} />
               Mais no Instagram
             </a>
           </div>
@@ -320,7 +328,7 @@ function App() {
               </ul>
               <div className="flex gap-4">
                 <a href="https://instagram.com/drromulocosta" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-primaryLight/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                  <Instagram size={18} />
+                  <InstagramIcon size={18} />
                 </a>
                 <a href="https://api.whatsapp.com/send?phone=5512974071990" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-primaryLight/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
                   <Phone size={18} />

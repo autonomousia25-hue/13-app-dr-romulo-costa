@@ -16,6 +16,13 @@ const WhatsAppIcon = ({ size = 24, className = "" }) => (
   </svg>
 );
 
+const ToothIcon = ({ size = 24, className = "" }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M10 21c-2.3 0-4-1.7-4-4V7a4 4 0 1 1 8 0v10c0 2.3-1.7 4-4 4"></path>
+    <path d="M10 21c0-2.3 1.7-4 4-4s4 1.7 4 4"></path>
+  </svg>
+);
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -382,61 +389,66 @@ function App() {
       </section>
 
       {/* Footer Completo */}
-      <footer id="contato" className="bg-white border-t border-gray-100 pt-20 pb-10">
+      <footer id="contato" className="bg-background border-t border-gray-200 pt-20 pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-12 gap-12 mb-16">
             
             {/* Branding */}
             <div className="md:col-span-4">
-              <div className="flex items-center gap-4 mb-8">
-                <img src="/logo-oficial.jpg" alt="Logo" className="h-16 w-16 rounded-full object-cover border-2 border-primaryLight shadow-sm" />
+              <div className="flex items-center gap-3 mb-6">
+                <ToothIcon size={28} className="text-primary" />
                 <div className="flex flex-col">
-                  <span className="font-extrabold text-2xl text-primaryDark">Dr. Rômulo Costa</span>
-                  <span className="text-xs font-bold tracking-widest text-primary uppercase">CROSP 101.185</span>
+                  <span className="font-extrabold text-xl text-primaryDark leading-tight">Dr. Rômulo Costa</span>
+                  <span className="text-[11px] font-bold tracking-wider text-primary uppercase">CROSP 101.185</span>
                 </div>
               </div>
-              <p className="text-textPrimary/70 text-sm leading-relaxed mb-6 font-medium">
-                Odontologia estética e reabilitação de alto padrão com foco absoluto no bem-estar e conforto do paciente.
+              <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6 font-medium">
+                Odontologia estética e reabilitação de alto padrão, com foco absoluto no bem-estar e conforto do paciente.
               </p>
+              <a href="https://instagram.com/drromulocosta" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-primary font-bold text-[15px] hover:text-primaryDark transition-colors">
+                <InstagramIcon size={20} />
+                Seguir no Instagram @dr.romulocosta
+              </a>
             </div>
 
             {/* Endereço & GPS */}
             <div className="md:col-span-4">
-              <h4 className="font-bold text-lg text-primaryDark mb-6 flex items-center gap-3"><MapPin size={20} className="text-primary"/> Localização</h4>
-              <p className="text-textPrimary/70 text-sm leading-relaxed mb-6">
+              <h4 className="font-bold text-[17px] text-primaryDark mb-6 flex items-center gap-2"><MapPin size={18} className="text-primary"/> Localização</h4>
+              <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6">
                 Rua Icatú, 530, sala 13<br />
                 Parque Industrial<br />
                 São José dos Campos (SP)<br />
                 CEP: 12237-010
               </p>
-              <div className="flex flex-col gap-3">
-                <a href="https://www.google.com/maps/search/?api=1&query=Rua+Icatu,+530+-+Parque+Industrial,+Sao+Jose+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-sm font-bold text-primary hover:text-primaryDark flex items-center gap-1 group"><ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" /> Abrir no Google Maps</a>
-                <a href="https://waze.com/ul?q=Rua+Icatu,+530+-+Parque+Industrial,+Sao+Jose+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-sm font-bold text-primary hover:text-primaryDark flex items-center gap-1 group"><ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" /> Navegar pelo Waze</a>
+              <div className="flex items-center gap-6">
+                <a href="https://www.google.com/maps/search/?api=1&query=Rua+Icatu,+530+-+Parque+Industrial,+Sao+Jose+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors">Abrir no Google Maps</a>
+                <a href="https://waze.com/ul?q=Rua+Icatu,+530+-+Parque+Industrial,+Sao+Jose+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors">Navegar pelo Waze</a>
               </div>
             </div>
 
             {/* Contatos & Horários */}
             <div className="md:col-span-4">
-              <h4 className="font-bold text-lg text-primaryDark mb-6 flex items-center gap-3"><Clock size={20} className="text-primary"/> Contato e Horários</h4>
-              <ul className="space-y-4 text-sm text-textPrimary/70 mb-8 font-medium">
-                <li className="flex justify-between border-b border-gray-100 pb-2"><span>Seg a Sex:</span> <span className="font-bold text-primaryDark">08:00 às 18:00</span></li>
-                <li className="flex justify-between border-b border-gray-100 pb-2"><span>Fixo:</span> <span className="font-bold text-primaryDark">(12) 3933-0821</span></li>
-                <li className="flex justify-between border-b border-gray-100 pb-2"><span>WhatsApp:</span> <span className="font-bold text-primaryDark">(12) 97407-1990</span></li>
+              <h4 className="font-bold text-[17px] text-primaryDark mb-6 flex items-center gap-2"><Clock size={18} className="text-primary"/> Contato e horários</h4>
+              <ul className="space-y-4 text-[15px] text-textPrimary/70 font-medium">
+                <li className="flex justify-between border-b border-gray-200 pb-3"><span>Seg a sex</span> <span className="font-bold text-primaryDark">08:00 às 18:00</span></li>
+                <li className="flex justify-between border-b border-gray-200 pb-3">
+                  <span>Fixo</span> 
+                  <a href="tel:+551239330821" className="font-bold text-primaryDark hover:text-primary transition-colors">(12) 3933-0821</a>
+                </li>
+                <li className="flex justify-between border-b border-gray-200 pb-3">
+                  <span>WhatsApp</span> 
+                  <a href="https://api.whatsapp.com/send?phone=5512974071990" target="_blank" rel="noreferrer" className="font-bold text-primaryDark hover:text-primary transition-colors">(12) 97407-1990</a>
+                </li>
               </ul>
-              <div className="flex gap-4">
-                <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} href="https://instagram.com/drromulocosta" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-primaryLight/20 text-primary flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-primaryDark hover:text-white transition-all shadow-sm">
-                  <InstagramIcon size={20} />
-                </motion.a>
-                <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} href="https://api.whatsapp.com/send?phone=5512974071990" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-primaryLight/20 text-primary flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-primaryDark hover:text-white transition-all shadow-sm">
-                  <WhatsAppIcon size={20} />
-                </motion.a>
-              </div>
             </div>
 
           </div>
-          <div className="border-t border-gray-100 pt-8 text-center flex flex-col items-center justify-center">
-            <p className="text-textPrimary/40 text-sm font-medium">
-              © {new Date().getFullYear()} Dr. Rômulo Costa Odontologia. Todos os direitos reservados.
+          <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-between">
+            <p className="text-textPrimary/40 text-[13px] font-medium">
+              © {new Date().getFullYear()} Dr. Rômulo Costa — Odontologia
+            </p>
+            <p className="text-textPrimary/40 text-[13px] font-medium mt-4 md:mt-0">
+              Desenvolvido por <a href="https://autonomousai.com.br/" target="_blank" rel="noreferrer" className="hover:text-primaryDark font-bold transition-colors">AIA</a>
             </p>
           </div>
         </div>

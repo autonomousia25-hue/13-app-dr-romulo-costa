@@ -481,9 +481,9 @@ function App() {
       </section>
 
       {/* Footer Completo */}
-      <footer id="contato" className="bg-background border-t border-gray-200 pt-20 pb-10">
+      <footer id="contato" className="bg-background border-t border-gray-200 pt-16 pb-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-12 gap-12 mb-16">
+          <div className="grid md:grid-cols-12 gap-12 mb-8">
             
             {/* Branding */}
             <div className="md:col-span-4">
@@ -514,6 +514,9 @@ function App() {
               <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6 text-justify">
                 Rua Icatú, 530, Cj R Trinta Um Marco, São José dos Campos SP, 12237-010, Brasil
               </p>
+              <div className="w-full mb-6 rounded-2xl overflow-hidden shadow-sm border border-gray-200">
+                <iframe width="100%" height="150" style={{ border: 0 }} loading="lazy" allowFullScreen src="https://maps.google.com/maps?q=Rua+Icat%C3%BA,+530,+S%C3%A3o+Jos%C3%A9+dos+Campos&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Mapa do Consultório"></iframe>
+              </div>
               <div className="flex justify-center md:justify-start items-center gap-6">
                 <a href="https://www.google.com/maps/search/?api=1&query=Rua+Icat%C3%BA,+530,+Cj+R+Trinta+Um+Marco,+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors underline-offset-4 hover:underline">Abrir no Google Maps</a>
                 <a href="https://waze.com/ul?q=Rua+Icat%C3%BA,+530,+Cj+R+Trinta+Um+Marco,+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors underline-offset-4 hover:underline">Navegar pelo Waze</a>
@@ -538,7 +541,7 @@ function App() {
             </div>
 
           </div>
-          <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row items-center justify-between">
+          <div className="border-t border-gray-200 pt-4 flex flex-col md:flex-row items-center justify-between">
             <p className="text-textPrimary/40 text-[13px] font-medium">
               © {new Date().getFullYear()} Dr. Rômulo Costa — Odontologia
             </p>

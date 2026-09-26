@@ -1,16 +1,40 @@
-# React + Vite
+# Dr. Rômulo Costa - Landing Page Odontológica 🦷✨
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Página de alta conversão desenvolvida para o Dr. Rômulo Costa, focada em reabilitação oral e odontologia estética. O projeto possui um design premium, responsivo e minimalista, estruturado para capturar leads via WhatsApp e otimizado para buscadores tradicionais e IA.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias e Stack
+- **React + Vite**: Performance máxima e HMR rápido.
+- **Tailwind CSS**: Estilização utility-first para design fluido e responsivo.
+- **Framer Motion**: Animações e micro-interações suaves ao longo da rolagem da página.
+- **Lucide React**: Ícones consistentes e otimizados.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌟 Funcionalidades e Diferenciais (UI/UX)
+- **Marquee Header**: Barra contínua informativa no topo.
+- **Hero Section Dinâmico**: Foco no paciente e botão de CTA principal com efeito pulse (WhatsApp).
+- **Mobile First / Tab Bar**: No mobile, há uma barra de navegação inferior fixa para agilizar o contato, padrão de alta conversão.
+- **Smart Sticky Navbar**: O cabeçalho (navbar) se esconde automaticamente e de forma elegante quando o rodapé e os contatos finais entram na tela para não haver redundância.
+- **SEO / GEO Preparado**: Código semântico para o Google e para IAs de busca, garantindo encontrabilidade (Findability) e autoridade no nicho de odontologia.
+- **QR Code Interativo**: Integração limpa para acesso rápido ao Instagram no desktop.
 
-## React Compiler
+## 🔧 Instalação e Execução Local
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Clone o repositório.
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Rode o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+4. Para gerar a versão de produção (deploy):
+   ```bash
+   npm run build
+   ```
 
-## Expanding the Oxlint configuration
+## 🏗 Arquitetura do Projeto
+Todo o layout está concentrado em `src/App.jsx` com a identidade visual regida pelo `tailwind.config.js` (cores `primary`, `primaryLight`, `primaryDark`, etc).
+O conteúdo obedece a regras de minimalismo estrito documentadas no escopo do projeto, sem degradês pesados nos botões e focando em cores sólidas ("Verde-Água").
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 📄 Licença
+Projeto proprietário, desenvolvido por AIA-CORTEX-HUB. Todos os direitos reservados.

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, ShieldCheck, HeartPulse, ChevronRight, CheckCircle, Clock, MapPin, ArrowRight, Sparkles, Activity, PlusCircle, Award } from 'lucide-react';
+import { Phone, ShieldCheck, HeartPulse, ChevronRight, CheckCircle, Clock, MapPin, ArrowRight, Sparkles, Activity, PlusCircle, Award, Image, Home } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const InstagramIcon = ({ size = 24, className = "" }) => (
@@ -23,11 +23,17 @@ const ToothIcon = ({ size = 24, className = "" }) => (
   </svg>
 );
 
-const ToothSparkleIcon = ({ size = 24, className = "" }) => (
-  <svg className={className} xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M10 22a5 5 0 0 1-5-5c0-2-1-3-2-5a4 4 0 0 1 8-1.5c1-1 3-1 4 0a4 4 0 0 1 1.6 5" />
-    <path d="M10 22c0-2.3 1.7-4 4-4" />
-    <path d="M21 2l-1.5 4-4 1.5 4 1.5L21 13l1.5-4 4-1.5-4-1.5z" />
+const ToothSparkleIcon = ({ size = 24, strokeWidth = 1.5, className = "" }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round">
+    <defs>
+      <mask id="sparkle-mask">
+        <rect width="24" height="24" fill="white" />
+        <circle cx="18" cy="5" r="4.5" fill="black" />
+      </mask>
+    </defs>
+    
+    <path mask="url(#sparkle-mask)" d="M12 5.5C11 4 9.5 3.5 8 3.5 5.5 3.5 3.5 5.5 3.5 8c0 2 1 3.5 1.5 5.5.5 2 1 5 3 5 1.5 0 2-2 3-4 .5-1 1.5-1 2 0 1 2 1.5 4 3 4 2 0 2.5-3 3-5 .5-2 1.5-3.5 1.5-5.5 0-2.5-2-4.5-4.5-4.5-1.5 0-3 .5-4 2z" />
+    <path d="M18 1c0 2.5 1.5 4 4 4-2.5 0-4 1.5-4 4 0-2.5-1.5-4-4-4 2.5 0 4-1.5 4-4z" />
   </svg>
 );
 
@@ -65,7 +71,7 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-background font-sans text-textPrimary scroll-smooth">
+    <div className="min-h-screen bg-background font-sans text-textPrimary scroll-smooth pb-20 md:pb-0">
       {/* Navbar (Nielsen Heuristics: Clear Navigation & Consistency) */}
       <motion.nav 
         initial={{ y: -100 }}
@@ -116,7 +122,7 @@ function App() {
       </motion.nav>
 
       {/* Hero Section (Disney Effect) */}
-      <section className="relative bg-gradient-to-b from-primaryLight/20 via-background to-background pt-20 pb-20 lg:pt-32 lg:pb-32 overflow-hidden">
+      <section className="relative bg-gradient-to-b from-primaryLight/20 via-background to-background pt-8 pb-20 lg:pt-32 lg:pb-32 overflow-hidden">
         {/* Floating background elements */}
         <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute top-20 left-10 w-64 h-64 bg-primaryLight/30 rounded-full blur-3xl"></motion.div>
         <motion.div animate={{ y: [0, 30, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-10 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></motion.div>
@@ -142,6 +148,16 @@ function App() {
               <motion.p variants={fadeUp} className="text-lg md:text-xl text-textPrimary/80 mb-10 leading-relaxed">
                 Muitos pacientes reclamam do seu sorriso e dizem que foram adiando o tratamento por terem <strong className="text-primaryDark">medo de dentista</strong>. Não cometa o mesmo erro! Apenas procure um bom profissional e recupere sua autoestima.
               </motion.p>
+              
+              {/* Mobile Hero Image */}
+              <motion.div 
+                variants={fadeUp}
+                className="relative mb-10 block lg:hidden"
+              >
+                <div className="relative rounded-[2.5rem] shadow-2xl bg-white p-2 border-4 border-white aspect-square flex items-center justify-center overflow-hidden">
+                   <img src="/drromulocosta_hero-section.jpg" alt="Dr. Rômulo Costa" className="w-full h-full object-cover rounded-3xl" />
+                </div>
+              </motion.div>
               
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
                 <motion.a 
@@ -175,7 +191,7 @@ function App() {
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative mt-12 lg:mt-0"
+              className="relative hidden lg:block"
             >
                {/* Decorative background shape */}
                <motion.div 
@@ -468,7 +484,7 @@ function App() {
         </div>
       </footer>
 
-      {/* Floating WhatsApp Button */}
+      {/* Botão Flutuante WhatsApp */}
       <motion.a 
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -478,11 +494,35 @@ function App() {
         href="https://api.whatsapp.com/send?phone=5512974071990" 
         target="_blank" 
         rel="noreferrer" 
-        className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 flex items-center justify-center group"
+        className="fixed bottom-24 md:bottom-6 right-4 md:right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 flex items-center justify-center group"
       >
         <span className="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75 animate-ping"></span>
         <WhatsAppIcon size={28} className="relative z-10" />
       </motion.a>
+
+      {/* Mobile Bottom Tab Bar */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 z-50 px-2 py-2 flex justify-between items-center shadow-[0_-10px_30px_rgba(0,0,0,0.08)] pb-safe">
+        <a href="#" className="flex flex-col items-center gap-1 text-primary hover:text-primaryDark p-2 flex-1">
+          <Home size={22} strokeWidth={2} />
+          <span className="text-[10px] font-bold tracking-tight">Início</span>
+        </a>
+        <a href="#tratamentos" className="flex flex-col items-center gap-1 text-textPrimary/40 hover:text-primary p-2 flex-1">
+          <Activity size={22} strokeWidth={2} />
+          <span className="text-[10px] font-bold tracking-tight">Tratamentos</span>
+        </a>
+        <a href="#diferenciais" className="flex flex-col items-center gap-1 text-textPrimary/40 hover:text-primary p-2 flex-1">
+          <Award size={22} strokeWidth={2} />
+          <span className="text-[10px] font-bold tracking-tight">Diferenciais</span>
+        </a>
+        <a href="#galeria" className="flex flex-col items-center gap-1 text-textPrimary/40 hover:text-primary p-2 flex-1">
+          <Image size={22} strokeWidth={2} />
+          <span className="text-[10px] font-bold tracking-tight">Galeria</span>
+        </a>
+        <a href="#contato" className="flex flex-col items-center gap-1 text-textPrimary/40 hover:text-primary p-2 flex-1">
+          <Phone size={22} strokeWidth={2} />
+          <span className="text-[10px] font-bold tracking-tight">Contato</span>
+        </a>
+      </div>
 
     {/* Lightbox / Modal de Imagem */}
       <AnimatePresence>

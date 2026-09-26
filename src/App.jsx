@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, ShieldCheck, HeartPulse, Smile, ChevronRight, CheckCircle, Clock, MapPin, ArrowRight, Sparkles, Activity } from 'lucide-react';
+import { Phone, ShieldCheck, HeartPulse, ChevronRight, CheckCircle, Clock, MapPin, ArrowRight, Sparkles, Activity, PlusCircle, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const InstagramIcon = ({ size = 24 }) => (
@@ -112,7 +112,7 @@ function App() {
               className="max-w-2xl"
             >
               <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/80 backdrop-blur-sm shadow-md text-primaryDark font-semibold text-sm mb-8 border border-primaryLight/50">
-                <Smile size={18} className="text-primary" /> Especialista em Ortodontia
+                <Award size={18} className="text-primary" /> Especialista em Ortodontia
               </motion.div>
               
               <motion.h1 variants={fadeUp} className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-primaryDark leading-[1.1] mb-6">
@@ -193,70 +193,26 @@ function App() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-[240px]"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
-            {/* Item 1 - Ortodontia */}
-            <motion.div variants={fadeUp} whileHover={{ y: -5 }} className="md:col-span-2 md:row-span-2 rounded-[2rem] bg-gradient-to-br from-primaryLight/20 to-white p-8 border border-primaryLight/30 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all group overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-primaryLight/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 group-hover:bg-primaryLight/20 transition-colors"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-md mb-8 group-hover:scale-110 transition-transform duration-500">
-                  <Smile size={32} className="text-primary" />
+            {[
+              { icon: Activity, title: "Ortodontia", desc: "Aparelhos modernos e discretos para um sorriso simétrico e perfeito no menor tempo possível." },
+              { icon: ShieldCheck, title: "Implantes", desc: "Recupere sua mastigação e estética com implantes altamente seguros, previsíveis e duradouros." },
+              { icon: Sparkles, title: "Clareamento", desc: "Técnicas avançadas para dentes brancos e iluminados, priorizando sua segurança e conforto." },
+              { icon: HeartPulse, title: "Endodontia", desc: "Tratamento de canal moderno, rápido e humanizado, priorizando sempre o alívio imediato da dor." },
+              { icon: CheckCircle, title: "Próteses", desc: "Reabilitação oral completa com materiais de alta estética que devolvem a naturalidade do sorriso." },
+              { icon: PlusCircle, title: "Clínico Geral", desc: "Foco na prevenção, limpeza profissional e manutenção contínua para sua saúde bucal em longo prazo." }
+            ].map((item, i) => (
+              <motion.div key={i} variants={fadeUp} whileHover={{ y: -5 }} className="bg-white p-8 rounded-[1.5rem] shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary/30 transition-all group flex flex-col justify-start">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="text-primary group-hover:scale-110 transition-transform duration-300">
+                    <item.icon size={32} strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-xl font-bold text-primaryDark">{item.title}</h3>
                 </div>
-                <h3 className="text-3xl font-extrabold text-primaryDark mb-4">Ortodontia</h3>
-                <p className="text-textPrimary/80 leading-relaxed max-w-md text-lg">Especialista em alinhamento perfeito. Trabalhamos com os aparelhos mais modernos e discretos do mercado para garantir um sorriso simétrico no menor tempo possível.</p>
-              </div>
-              <a href="https://api.whatsapp.com/send?phone=5512974071990" target="_blank" rel="noreferrer" className="relative z-10 inline-flex items-center gap-2 text-primary font-bold mt-4 hover:text-primaryDark transition-colors group/btn">
-                Saber mais <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
-              </a>
-            </motion.div>
-
-            {/* Item 2 - Implantes */}
-            <motion.div variants={fadeUp} whileHover={{ y: -5 }} className="md:col-span-2 rounded-[2rem] bg-white shadow-sm p-8 border border-gray-100 flex flex-col justify-between hover:border-primary/30 hover:shadow-xl transition-all group relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-primaryLight/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="flex justify-between items-start relative z-10">
-                <div>
-                  <h3 className="text-2xl font-bold text-primaryDark mb-3">Implantes</h3>
-                  <p className="text-textPrimary/70 leading-relaxed max-w-xs">Recupere a função mastigatória e a estética com implantes seguros e duradouros.</p>
-                </div>
-                <div className="w-14 h-14 bg-primaryLight/20 rounded-2xl flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-500 shadow-sm">
-                  <ShieldCheck size={28} />
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Item 3 - Clareamento */}
-            <motion.div variants={fadeUp} whileHover={{ y: -5 }} className="rounded-[2rem] bg-gradient-to-br from-primary to-primaryDark text-white p-8 flex flex-col justify-between shadow-lg hover:shadow-primary/30 transition-all group relative overflow-hidden">
-              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative z-10">
-                <Sparkles size={36} className="mb-6 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-bold mb-3">Clareamento</h3>
-                <p className="text-white/80 font-medium">Dentes brancos e iluminados com segurança e sem dor.</p>
-              </div>
-            </motion.div>
-
-            {/* Item 4 - Endodontia */}
-            <motion.div variants={fadeUp} whileHover={{ y: -5 }} className="rounded-[2rem] bg-white shadow-sm p-8 border border-gray-100 flex flex-col justify-between hover:border-primary/30 hover:shadow-xl transition-all group">
-               <div className="w-12 h-12 bg-primaryLight/20 rounded-xl flex items-center justify-center text-primary mb-5 group-hover:-rotate-12 transition-transform duration-300">
-                  <Activity size={24} />
-                </div>
-              <h3 className="text-xl font-bold text-primaryDark mb-2">Endodontia</h3>
-              <p className="text-textPrimary/70 font-medium">Tratamento de canal moderno e humanizado.</p>
-            </motion.div>
-            
-             {/* Item 5 - Próteses */}
-             <motion.div variants={fadeUp} whileHover={{ y: -5 }} className="rounded-[2rem] bg-white shadow-sm p-8 border border-gray-100 flex flex-col justify-between hover:border-primary/30 hover:shadow-xl transition-all group">
-               <div className="w-12 h-12 bg-primaryLight/20 rounded-xl flex items-center justify-center text-primary mb-5 group-hover:rotate-12 transition-transform duration-300">
-                  <CheckCircle size={24} />
-                </div>
-              <h3 className="text-xl font-bold text-primaryDark mb-2">Próteses</h3>
-              <p className="text-textPrimary/70 font-medium">Materiais de alta estética e resistência.</p>
-            </motion.div>
-
-             {/* Item 6 - Clínico Geral */}
-             <motion.div variants={fadeUp} whileHover={{ y: -5 }} className="rounded-[2rem] bg-primaryLight/10 p-8 flex flex-col justify-between border border-primaryLight/20 hover:bg-primaryLight/20 transition-colors group">
-              <h3 className="text-xl font-bold text-primaryDark mb-2">Clínico Geral</h3>
-              <p className="text-textPrimary/70 font-medium">Prevenção, limpeza e saúde bucal contínua.</p>
-            </motion.div>
+                <p className="text-textPrimary/70 font-medium leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
@@ -281,7 +237,7 @@ function App() {
           >
             {[
               { icon: HeartPulse, title: "Tecnologia 3D Avançada", desc: "Diagnósticos precisos através de escaneamento digital e modelagem 3D, eliminando moldagens desconfortáveis e garantindo resultados previsíveis." },
-              { icon: Smile, title: "Conforto Absoluto", desc: "Ambiente preparado para reduzir a ansiedade. Nosso foco principal é em quem tem medo de dentista, garantindo procedimentos humanizados." },
+              { icon: Award, title: "Conforto Absoluto", desc: "Ambiente preparado para reduzir a ansiedade. Nosso foco principal é em quem tem medo de dentista, garantindo procedimentos humanizados." },
               { icon: ShieldCheck, title: "Segurança Clínica", desc: "Biossegurança rigorosa e utilização dos melhores materiais odontológicos disponíveis mundialmente." }
             ].map((item, i) => (
               <motion.div key={i} variants={fadeUp} whileHover={{ y: -10 }} className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 group">
@@ -365,7 +321,7 @@ function App() {
               { icon: CheckCircle, title: "Combate ao Mau Hálito", content: <ul className="text-textPrimary/70 text-sm space-y-3"><li>• <strong>Beba muita água:</strong> evita a boca seca.</li><li>• <strong>Escove a língua:</strong> foco das bactérias.</li><li>• <strong>Use fio dental:</strong> sempre após refeições.</li><li>• <strong>Dieta:</strong> cuidado com alho e cebola.</li></ul> },
               { icon: ShieldCheck, title: "O Poder do Fio Dental", content: <p className="text-textPrimary/70 text-sm leading-relaxed">Você sabia que quando não usamos fio dental, deixamos de limpar <strong>35% da superfície</strong> do dente? Ele é essencial para remover a placa bacteriana onde a escova jamais alcança.</p> },
               { icon: Clock, title: "Troca da Escova", content: <p className="text-textPrimary/70 text-sm leading-relaxed">Troque a sua escova a cada <strong>3 meses</strong> ou ao notar desgaste nas cerdas. Escovas velhas acumulam bactérias e perdem a eficiência na remoção da placa bacteriana.</p> },
-              { icon: Smile, title: "Cuidados c/ a Prótese", content: <p className="text-textPrimary/70 text-sm leading-relaxed">Para sua prótese removível durar muito mais, higienize diariamente com escovas macias adequadas e evite pastas muito abrasivas que possam arranhar a resina.</p> }
+              { icon: Award, title: "Cuidados c/ a Prótese", content: <p className="text-textPrimary/70 text-sm leading-relaxed">Para sua prótese removível durar muito mais, higienize diariamente com escovas macias adequadas e evite pastas muito abrasivas que possam arranhar a resina.</p> }
             ].map((item, i) => (
               <motion.div key={i} variants={fadeUp} whileHover={{ y: -8 }} className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group">
                 <div className="w-14 h-14 bg-primaryLight/20 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform"><item.icon size={26} /></div>

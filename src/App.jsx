@@ -55,7 +55,7 @@ const TopBarMarquee = () => (
   <div className="w-full bg-primaryDark text-white overflow-hidden py-2 relative z-50">
     <motion.div
       animate={{ x: ["0%", "-50%"] }}
-      transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+      transition={{ repeat: Infinity, ease: "linear", duration: 60 }}
       className="flex whitespace-nowrap w-max"
     >
       {[...Array(2)].map((_, i) => (

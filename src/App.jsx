@@ -23,6 +23,14 @@ const ToothIcon = ({ size = 24, className = "" }) => (
   </svg>
 );
 
+const ToothSparkleIcon = ({ size = 24, className = "" }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M10 22a5 5 0 0 1-5-5c0-2-1-3-2-5a4 4 0 0 1 8-1.5c1-1 3-1 4 0a4 4 0 0 1 1.6 5" />
+    <path d="M10 22c0-2.3 1.7-4 4-4" />
+    <path d="M21 2l-1.5 4-4 1.5 4 1.5L21 13l1.5-4 4-1.5-4-1.5z" />
+  </svg>
+);
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -167,7 +175,7 @@ function App() {
               initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative hidden lg:block"
+              className="relative mt-12 lg:mt-0"
             >
                {/* Decorative background shape */}
                <motion.div 
@@ -210,7 +218,7 @@ function App() {
             {[
               { icon: Activity, title: "Ortodontia", desc: "Aparelhos modernos e discretos para um sorriso simétrico e perfeito no menor tempo possível." },
               { icon: ShieldCheck, title: "Implantes", desc: "Recupere sua mastigação e estética com implantes altamente seguros, previsíveis e duradouros." },
-              { icon: Sparkles, title: "Clareamento", desc: "Técnicas avançadas para dentes brancos e iluminados, priorizando sua segurança e conforto." },
+              { icon: ToothSparkleIcon, title: "Clareamento", desc: "Técnicas avançadas para dentes brancos e iluminados, priorizando sua segurança e conforto." },
               { icon: HeartPulse, title: "Endodontia", desc: "Tratamento de canal moderno, rápido e humanizado, priorizando sempre o alívio imediato da dor." },
               { icon: CheckCircle, title: "Próteses", desc: "Reabilitação oral completa com materiais de alta estética que devolvem a naturalidade do sorriso." },
               { icon: PlusCircle, title: "Clínico Geral", desc: "Foco na prevenção, limpeza profissional e manutenção contínua para sua saúde bucal em longo prazo." }

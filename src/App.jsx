@@ -517,10 +517,6 @@ function App() {
               <div className="w-full flex-grow rounded-2xl overflow-hidden shadow-sm border border-gray-200">
                 <iframe width="100%" height="100%" style={{ border: 0, minHeight: '200px' }} loading="lazy" allowFullScreen src="https://maps.google.com/maps?q=Rua+Icat%C3%BA,+530,+S%C3%A3o+Jos%C3%A9+dos+Campos&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Mapa do Consultório"></iframe>
               </div>
-              <div className="flex md:hidden justify-center items-center gap-6 mt-6">
-                <a href="https://www.google.com/maps/search/?api=1&query=Rua+Icat%C3%BA,+530,+Cj+R+Trinta+Um+Marco,+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors underline-offset-4 hover:underline">Abrir no Google Maps</a>
-                <a href="https://waze.com/ul?q=Rua+Icat%C3%BA,+530,+Cj+R+Trinta+Um+Marco,+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors underline-offset-4 hover:underline">Navegar pelo Waze</a>
-              </div>
             </div>
 
             {/* Contatos & Horários */}

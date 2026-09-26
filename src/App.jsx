@@ -184,7 +184,7 @@ function App() {
                 Você é feliz com o <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primaryDark">seu sorriso?</span>
               </motion.h1>
               
-              <motion.p variants={fadeUp} className="text-lg md:text-xl text-textPrimary/80 mb-8 leading-relaxed text-justify">
+              <motion.p variants={fadeUp} className="text-lg md:text-xl text-textPrimary/80 mb-8 lg:mb-16 leading-relaxed text-justify">
                 Muitos pacientes reclamam do seu sorriso e dizem que foram adiando o tratamento por terem <strong className="text-primaryDark">medo de dentista</strong>. Não cometa o mesmo erro! Apenas procure um bom profissional e recupere sua autoestima.
               </motion.p>
               

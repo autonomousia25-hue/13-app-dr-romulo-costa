@@ -210,7 +210,7 @@ function App() {
                   <WhatsAppIcon size={20} />
                   Agendar avaliação
                 </motion.a>
-                <div className="flex-1 flex items-center justify-center gap-2 bg-white text-[#3e6b72] px-4 py-3.5 rounded-full font-semibold text-[1.05rem] border border-gray-200">
+                <div className="flex-1 flex items-center justify-center gap-2 bg-white text-[#3e6b72] px-4 py-3.5 rounded-full font-semibold text-[1.05rem] border border-gray-300">
                   <Award size={20} className="text-[#3e6b72]" /> Especialista em Ortodontia
                 </div>
               </motion.div>

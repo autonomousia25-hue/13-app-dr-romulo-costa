@@ -486,7 +486,7 @@ function App() {
           <div className="grid md:grid-cols-12 gap-12 mb-8">
             
             {/* Branding */}
-            <div className="md:col-span-4">
+            <div className="md:col-span-4 flex flex-col h-full">
               <div className="flex items-center gap-4 mb-6">
                 <img src="/logo-oficial.jpg" alt="Dr. Rômulo Costa" className="h-14 w-14 rounded-full object-cover border-2 border-primaryLight shadow-sm" />
                 <div className="flex flex-col">
@@ -497,27 +497,27 @@ function App() {
               <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6 font-medium text-justify">
                 Odontologia estética e reabilitação de alto padrão, com foco absoluto no bem-estar e conforto do paciente.
               </p>
-              <div className="inline-flex flex-col items-center gap-4 mt-2">
+              <div className="inline-flex flex-col items-center md:items-start gap-4 mt-auto">
                 <a href="https://instagram.com/drromulocosta" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-primary font-bold text-[15px] hover:text-primaryDark transition-colors">
                   <InstagramIcon size={20} />
                   Seguir no Instagram @dr.romulocosta
                 </a>
-                <div className="bg-white p-3 rounded-2xl shadow-sm border border-gray-100 mt-2">
+                <div className="bg-white p-3 rounded-2xl shadow-sm border border-gray-100 self-center md:self-start md:ml-2">
                   <QRCode value="https://instagram.com/drromulocosta" size={120} fgColor="#0F3443" />
                 </div>
               </div>
             </div>
 
             {/* Endereço & GPS */}
-            <div className="md:col-span-4">
+            <div className="md:col-span-4 flex flex-col h-full">
               <h4 className="font-bold text-[17px] text-primaryDark mb-6 flex items-center gap-2"><MapPin size={18} className="text-primary"/> Localização</h4>
               <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6 text-justify">
                 Rua Icatú, 530, Cj R Trinta Um Marco, São José dos Campos SP, 12237-010, Brasil
               </p>
-              <div className="w-full mb-6 rounded-2xl overflow-hidden shadow-sm border border-gray-200">
-                <iframe width="100%" height="150" style={{ border: 0 }} loading="lazy" allowFullScreen src="https://maps.google.com/maps?q=Rua+Icat%C3%BA,+530,+S%C3%A3o+Jos%C3%A9+dos+Campos&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Mapa do Consultório"></iframe>
+              <div className="w-full flex-grow rounded-2xl overflow-hidden shadow-sm border border-gray-200">
+                <iframe width="100%" height="100%" style={{ border: 0, minHeight: '200px' }} loading="lazy" allowFullScreen src="https://maps.google.com/maps?q=Rua+Icat%C3%BA,+530,+S%C3%A3o+Jos%C3%A9+dos+Campos&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Mapa do Consultório"></iframe>
               </div>
-              <div className="flex justify-center md:justify-start items-center gap-6">
+              <div className="flex md:hidden justify-center items-center gap-6 mt-6">
                 <a href="https://www.google.com/maps/search/?api=1&query=Rua+Icat%C3%BA,+530,+Cj+R+Trinta+Um+Marco,+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors underline-offset-4 hover:underline">Abrir no Google Maps</a>
                 <a href="https://waze.com/ul?q=Rua+Icat%C3%BA,+530,+Cj+R+Trinta+Um+Marco,+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors underline-offset-4 hover:underline">Navegar pelo Waze</a>
               </div>

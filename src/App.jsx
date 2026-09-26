@@ -490,13 +490,16 @@ function App() {
             
             {/* Branding */}
             <div className="md:col-span-4 flex flex-col h-full">
-              <div className="flex items-center gap-4 mb-6">
-                <img src="/logo-oficial.jpg" alt="Dr. Rômulo Costa" className="h-14 w-14 rounded-full object-cover border-2 border-primaryLight shadow-sm" />
+              <a href="#" className="flex items-center gap-4 mb-6 group cursor-pointer w-fit">
+                <div className="relative">
+                  <img src="/logo-oficial.jpg" alt="Dr. Rômulo Costa" className="h-14 w-14 rounded-full object-cover border-2 border-primaryLight shadow-sm transition-transform group-hover:scale-105" />
+                  <div className="absolute inset-0 rounded-full bg-primary opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                </div>
                 <div className="flex flex-col">
-                  <span className="font-extrabold text-xl text-primaryDark leading-tight">Dr. Rômulo Costa</span>
+                  <span className="font-extrabold text-xl text-primaryDark leading-tight group-hover:text-primary transition-colors">Dr. Rômulo Costa</span>
                   <span className="text-[11px] font-bold tracking-wider text-primary uppercase">CROSP 101.185</span>
                 </div>
-              </div>
+              </a>
               <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6 font-medium text-justify">
                 Odontologia estética e reabilitação de alto padrão, com foco absoluto no bem-estar e conforto do paciente.
               </p>

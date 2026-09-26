@@ -307,7 +307,7 @@ function App() {
                   </div>
                   <h3 className="text-xl font-bold text-primaryDark">{item.title}</h3>
                 </div>
-                <p className="text-textPrimary/70 font-medium leading-relaxed">{item.desc}</p>
+                <p className="text-textPrimary/70 font-medium leading-relaxed text-justify">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -432,7 +432,7 @@ function App() {
                 icon: CheckCircle, 
                 title: "Combate ao mau hálito", 
                 content: (
-                  <div className="text-textPrimary/70 text-[15px] space-y-4">
+                  <div className="text-textPrimary/70 text-[15px] space-y-4 text-justify">
                     <p><strong>Beba muita água</strong> — evita a boca seca.</p>
                     <p><strong>Escove a língua</strong> — foco das bactérias.</p>
                     <p><strong>Use fio dental</strong> — sempre após refeições.</p>
@@ -443,17 +443,17 @@ function App() {
               { 
                 icon: ShieldCheck, 
                 title: "O poder do fio dental", 
-                content: <p className="text-textPrimary/70 text-[15px] leading-relaxed">Quando não usamos fio dental, deixamos de limpar <strong>35%</strong> da superfície do dente. Ele remove a placa bacteriana onde a escova jamais alcança.</p> 
+                content: <p className="text-textPrimary/70 text-[15px] leading-relaxed text-justify">Quando não usamos fio dental, deixamos de limpar <strong>35%</strong> da superfície do dente. Ele remove a placa bacteriana onde a escova jamais alcança.</p> 
               },
               { 
                 icon: Clock, 
                 title: "Troca da escova", 
-                content: <p className="text-textPrimary/70 text-[15px] leading-relaxed">Troque a sua escova a cada <strong>3 meses</strong>, ou ao notar desgaste nas cerdas. Escovas velhas acumulam bactérias e perdem eficiência.</p> 
+                content: <p className="text-textPrimary/70 text-[15px] leading-relaxed text-justify">Troque a sua escova a cada <strong>3 meses</strong>, ou ao notar desgaste nas cerdas. Escovas velhas acumulam bactérias e perdem eficiência.</p> 
               },
               { 
                 icon: Award, 
                 title: "Cuidados com a prótese", 
-                content: <p className="text-textPrimary/70 text-[15px] leading-relaxed">Higienize diariamente com escovas macias adequadas e evite pastas abrasivas que possam arranhar a resina.</p> 
+                content: <p className="text-textPrimary/70 text-[15px] leading-relaxed text-justify">Higienize diariamente com escovas macias adequadas e evite pastas abrasivas que possam arranhar a resina.</p> 
               }
             ].map((item, i) => (
               <motion.div 
@@ -493,7 +493,7 @@ function App() {
                   <span className="text-[11px] font-bold tracking-wider text-primary uppercase">CROSP 101.185</span>
                 </div>
               </div>
-              <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6 font-medium">
+              <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6 font-medium text-justify">
                 Odontologia estética e reabilitação de alto padrão, com foco absoluto no bem-estar e conforto do paciente.
               </p>
               <a href="https://instagram.com/drromulocosta" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-primary font-bold text-[15px] hover:text-primaryDark transition-colors">
@@ -505,7 +505,7 @@ function App() {
             {/* Endereço & GPS */}
             <div className="md:col-span-4">
               <h4 className="font-bold text-[17px] text-primaryDark mb-6 flex items-center gap-2"><MapPin size={18} className="text-primary"/> Localização</h4>
-              <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6">
+              <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6 text-justify">
                 Rua Icatú, 530, Cj R Trinta Um Marco<br />
                 São José dos Campos SP, 12237-010, Brasil
               </p>

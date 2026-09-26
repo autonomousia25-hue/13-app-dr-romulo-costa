@@ -154,7 +154,7 @@ function App() {
       </motion.nav>
 
       {/* Hero Section (Disney Effect) */}
-      <section className="relative bg-gradient-to-b from-primaryLight/20 via-background to-background pt-8 pb-20 lg:pt-32 lg:pb-32 overflow-hidden">
+      <section className="relative bg-gradient-to-b from-primaryLight/20 via-background to-background pt-8 pb-20 lg:pt-12 lg:pb-32 overflow-hidden">
         {/* Floating background elements */}
         <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} className="absolute top-20 left-10 w-64 h-64 bg-primaryLight/30 rounded-full blur-3xl"></motion.div>
         <motion.div animate={{ y: [0, 30, 0] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="absolute bottom-10 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></motion.div>
@@ -173,14 +173,14 @@ function App() {
                 Você é feliz com o <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primaryDark">seu sorriso?</span>
               </motion.h1>
               
-              <motion.p variants={fadeUp} className="text-lg md:text-xl text-textPrimary/80 mb-10 leading-relaxed text-justify">
+              <motion.p variants={fadeUp} className="text-lg md:text-xl text-textPrimary/80 mb-8 leading-relaxed text-justify">
                 Muitos pacientes reclamam do seu sorriso e dizem que foram adiando o tratamento por terem <strong className="text-primaryDark">medo de dentista</strong>. Não cometa o mesmo erro! Apenas procure um bom profissional e recupere sua autoestima.
               </motion.p>
               
               {/* Mobile Hero Image */}
               <motion.div 
                 variants={fadeUp}
-                className="relative mb-10 block lg:hidden"
+                className="relative mb-8 block lg:hidden"
               >
                 <div className="relative rounded-[2.5rem] shadow-2xl bg-white p-2 border-4 border-white aspect-square flex items-center justify-center overflow-hidden">
                    <img src="/drromulocosta_hero-section.jpg" alt="Dr. Rômulo Costa" className="w-full h-full object-cover rounded-3xl" />
@@ -189,23 +189,22 @@ function App() {
               
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
                 <motion.a 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   href={getWhatsAppLink()} 
                   target="_blank" 
                   rel="noreferrer" 
-                  className="flex-1 group relative flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primaryDark text-white px-4 py-4 rounded-full font-bold text-[1.05rem] md:text-lg shadow-xl shadow-primary/30 overflow-hidden"
+                  className="flex-1 group relative flex items-center justify-center gap-2 bg-[#3e6b72] hover:bg-[#32575c] transition-colors text-white px-4 py-3.5 rounded-full font-semibold text-[1.05rem] shadow-sm"
                 >
-                  <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
                   <WhatsAppIcon size={20} />
-                  Agendar minha avaliação
+                  Agendar avaliação
                 </motion.a>
-                <div className="flex-1 flex items-center justify-center gap-2 bg-white text-primaryDark px-4 py-4 rounded-full font-bold text-[1.05rem] md:text-lg shadow-sm border border-primaryLight/50">
-                  <Award size={20} className="text-primary" /> Especialista em Ortodontia
+                <div className="flex-1 flex items-center justify-center gap-2 bg-white text-[#3e6b72] px-4 py-3.5 rounded-full font-semibold text-[1.05rem] border border-gray-200">
+                  <Award size={20} className="text-[#3e6b72]" /> Especialista em Ortodontia
                 </div>
               </motion.div>
               
-              <motion.div variants={fadeUp} className="mt-12 flex items-center gap-8 text-sm font-semibold text-textPrimary/70">
+              <motion.div variants={fadeUp} className="mt-8 flex items-center gap-8 text-sm font-semibold text-textPrimary/70">
                 <div className="flex items-center gap-3 group">
                   <div className="p-2.5 bg-white rounded-full shadow-md group-hover:scale-110 transition-transform"><ShieldCheck size={20} className="text-primary" /></div>
                   Atendimento Premium

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, ShieldCheck, HeartPulse, ChevronRight, CheckCircle, Clock, MapPin, ArrowRight, Sparkles, Activity, PlusCircle, Award, Image, Home, Lightbulb } from 'lucide-react';
+import QRCode from "react-qr-code";
 import { motion, AnimatePresence } from 'framer-motion';
 
 const InstagramIcon = ({ size = 24, className = "" }) => (
@@ -144,7 +145,7 @@ function App() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="w-full bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-100"
+        className="w-full bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
@@ -496,18 +497,22 @@ function App() {
               <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6 font-medium text-justify">
                 Odontologia estética e reabilitação de alto padrão, com foco absoluto no bem-estar e conforto do paciente.
               </p>
-              <a href="https://instagram.com/drromulocosta" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-primary font-bold text-[15px] hover:text-primaryDark transition-colors">
-                <InstagramIcon size={20} />
-                Seguir no Instagram @dr.romulocosta
-              </a>
+              <div className="inline-flex flex-col items-center gap-4 mt-2">
+                <a href="https://instagram.com/drromulocosta" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-primary font-bold text-[15px] hover:text-primaryDark transition-colors">
+                  <InstagramIcon size={20} />
+                  Seguir no Instagram @dr.romulocosta
+                </a>
+                <div className="bg-white p-3 rounded-2xl shadow-sm border border-gray-100 mt-2">
+                  <QRCode value="https://instagram.com/drromulocosta" size={120} fgColor="#0F3443" />
+                </div>
+              </div>
             </div>
 
             {/* Endereço & GPS */}
             <div className="md:col-span-4">
               <h4 className="font-bold text-[17px] text-primaryDark mb-6 flex items-center gap-2"><MapPin size={18} className="text-primary"/> Localização</h4>
               <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6 text-justify">
-                Rua Icatú, 530, Cj R Trinta Um Marco<br />
-                São José dos Campos SP, 12237-010, Brasil
+                Rua Icatú, 530, Cj R Trinta Um Marco, São José dos Campos SP, 12237-010, Brasil
               </p>
               <div className="flex justify-center md:justify-start items-center gap-6">
                 <a href="https://www.google.com/maps/search/?api=1&query=Rua+Icat%C3%BA,+530,+Cj+R+Trinta+Um+Marco,+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors underline-offset-4 hover:underline">Abrir no Google Maps</a>

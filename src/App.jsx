@@ -1,12 +1,19 @@
 import React from 'react';
 import { Phone, ShieldCheck, HeartPulse, ChevronRight, CheckCircle, Clock, MapPin, ArrowRight, Sparkles, Activity, PlusCircle, Award } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const InstagramIcon = ({ size = 24 }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+const InstagramIcon = ({ size = 24, className = "" }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
     <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+  </svg>
+);
+
+const WhatsAppIcon = ({ size = 24, className = "" }) => (
+  <svg className={className} xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21.11 2.89A10.02 10.02 0 0 0 12 0a10 10 0 0 0-8.52 15.26L2 22l6.9-1.42A9.95 9.95 0 0 0 12 20a10 10 0 0 0 9.11-17.11z"></path>
+    <path d="M16.5 13.5c-.28-.14-1.63-.8-1.88-.89-.25-.09-.44-.14-.62.14-.19.28-.72.89-.88 1.08-.16.19-.31.21-.59.07-.28-.14-1.16-.43-2.21-1.37-.82-.74-1.37-1.65-1.53-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.49.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.62-1.5-.85-2.05-.23-.54-.46-.47-.62-.48h-.53c-.19 0-.5.07-.76.35-.26.28-1 .98-1 2.39 0 1.41 1.03 2.77 1.17 2.96.14.19 2.02 3.09 4.89 4.33 2.87 1.24 2.87.82 3.39.77.52-.05 1.63-.67 1.86-1.31.23-.64.23-1.19.16-1.31-.07-.12-.26-.19-.54-.33z"></path>
   </svg>
 );
 
@@ -26,21 +33,20 @@ const staggerContainer = {
 };
 
 function App() {
+  const [selectedImage, setSelectedImage] = React.useState(null);
 
   const provaTecnica = [
+    "/prova-tecnica/drromulocosta_1729605338_3484504590017691916_10853754012.jpg",
+    "/prova-tecnica/drromulocosta_1729605338_3484504589942219133_10853754012.jpg",
+    "/prova-tecnica/drromulocosta_1549303269_1972021216845575521_10853754012.jpg",
     "/prova-tecnica/drromulocosta_1550175177_1979335307528357733_10853754012.jpg",
+    "/prova-tecnica/drromulocosta_1550763382_1984269525760871423_10853754012.jpg",
     "/prova-tecnica/drromulocosta_1554921941_2019154053925570384_10853754012.jpg",
-    "/prova-tecnica/drromulocosta_1559334909_2056172710161878768_10853754012.jpg",
     "/prova-tecnica/drromulocosta_1563910496_2094555518063592774_10853754012.jpg",
-    "/prova-tecnica/drromulocosta_1564243579_2097349619683930857_10853754012.jpg",
-    "/prova-tecnica/drromulocosta_1570740858_2151852745484573532_10853754012.jpg",
     "/prova-tecnica/drromulocosta_1625229686_2608938164291578433_10853754012.jpg",
     "/prova-tecnica/drromulocosta_1628712318_2638152598203233049_10853754012.jpg",
-    "/prova-tecnica/drromulocosta_1630679892_2654657801878366718_10853754012.jpg",
-    "/prova-tecnica/drromulocosta_1630679892_2654657801886631393_10853754012.jpg",
     "/prova-tecnica/drromulocosta_1630679892_2654657801903484594_10853754012.jpg",
     "/prova-tecnica/drromulocosta_1666997443_2959311500704913254_10853754012.jpg",
-    "/prova-tecnica/drromulocosta_1729605338_3484504589942219133_10853754012.jpg",
     "/prova-tecnica/drromulocosta_1763397814_3767976429108410575_10853754012.jpg"
   ];
 
@@ -87,7 +93,7 @@ function App() {
                 className="bg-gradient-to-r from-primary to-primaryDark text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 flex items-center gap-2 min-h-[48px] overflow-hidden relative group"
               >
                 <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out"></div>
-                <Phone size={18} className="animate-pulse" />
+                <WhatsAppIcon size={18} className="animate-pulse" />
                 Agendar Avaliação
               </motion.a>
             </div>
@@ -240,12 +246,14 @@ function App() {
               { icon: Award, title: "Conforto Absoluto", desc: "Ambiente preparado para reduzir a ansiedade. Nosso foco principal é em quem tem medo de dentista, garantindo procedimentos humanizados." },
               { icon: ShieldCheck, title: "Segurança Clínica", desc: "Biossegurança rigorosa e utilização dos melhores materiais odontológicos disponíveis mundialmente." }
             ].map((item, i) => (
-              <motion.div key={i} variants={fadeUp} whileHover={{ y: -10 }} className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-100 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 group">
-                <div className="w-20 h-20 bg-gradient-to-br from-primaryLight/30 to-primaryLight/10 rounded-[1.5rem] flex items-center justify-center mx-auto mb-8 text-primary group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
-                  <item.icon size={36} />
+              <motion.div key={i} variants={fadeUp} whileHover={{ y: -5 }} className="bg-white p-8 rounded-[1.5rem] shadow-sm border border-gray-100 hover:shadow-xl hover:border-primary/30 transition-all group flex flex-col justify-start">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="text-primary group-hover:scale-110 transition-transform duration-300">
+                    <item.icon size={28} strokeWidth={1.5} />
+                  </div>
+                  <h4 className="text-xl font-bold text-primaryDark">{item.title}</h4>
                 </div>
-                <h4 className="text-2xl font-bold text-primaryDark mb-4">{item.title}</h4>
-                <p className="text-textPrimary/70 leading-relaxed">{item.desc}</p>
+                <p className="text-textPrimary/70 font-medium leading-relaxed text-justify">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -284,10 +292,15 @@ function App() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
+            className="grid grid-cols-2 md:grid-cols-3 gap-4"
           >
             {provaTecnica.map((imgSrc, index) => (
-              <motion.div key={index} variants={fadeUp} className="bg-background rounded-3xl aspect-square overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100 group relative">
+              <motion.div 
+                key={index} 
+                variants={fadeUp} 
+                className="bg-background rounded-3xl aspect-square overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-gray-100 group relative cursor-pointer"
+                onClick={() => setSelectedImage(imgSrc)}
+              >
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity z-10 mix-blend-overlay"></div>
                 <img src={imgSrc} alt={`Prova Técnica ${index + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
               </motion.div>
@@ -318,14 +331,18 @@ function App() {
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
             {[
-              { icon: CheckCircle, title: "Combate ao Mau Hálito", content: <ul className="text-textPrimary/70 text-sm space-y-3"><li>• <strong>Beba muita água:</strong> evita a boca seca.</li><li>• <strong>Escove a língua:</strong> foco das bactérias.</li><li>• <strong>Use fio dental:</strong> sempre após refeições.</li><li>• <strong>Dieta:</strong> cuidado com alho e cebola.</li></ul> },
-              { icon: ShieldCheck, title: "O Poder do Fio Dental", content: <p className="text-textPrimary/70 text-sm leading-relaxed">Você sabia que quando não usamos fio dental, deixamos de limpar <strong>35% da superfície</strong> do dente? Ele é essencial para remover a placa bacteriana onde a escova jamais alcança.</p> },
-              { icon: Clock, title: "Troca da Escova", content: <p className="text-textPrimary/70 text-sm leading-relaxed">Troque a sua escova a cada <strong>3 meses</strong> ou ao notar desgaste nas cerdas. Escovas velhas acumulam bactérias e perdem a eficiência na remoção da placa bacteriana.</p> },
-              { icon: Award, title: "Cuidados c/ a Prótese", content: <p className="text-textPrimary/70 text-sm leading-relaxed">Para sua prótese removível durar muito mais, higienize diariamente com escovas macias adequadas e evite pastas muito abrasivas que possam arranhar a resina.</p> }
+              { icon: CheckCircle, title: "Combate ao Mau Hálito", content: <ul className="text-textPrimary/70 text-sm space-y-3 text-justify"><li>• <strong>Beba muita água:</strong> evita a boca seca.</li><li>• <strong>Escove a língua:</strong> foco das bactérias.</li><li>• <strong>Use fio dental:</strong> sempre após refeições.</li><li>• <strong>Dieta:</strong> cuidado com alho e cebola.</li></ul> },
+              { icon: ShieldCheck, title: "O Poder do Fio Dental", content: <p className="text-textPrimary/70 text-sm leading-relaxed text-justify">Você sabia que quando não usamos fio dental, deixamos de limpar <strong>35% da superfície</strong> do dente? Ele é essencial para remover a placa bacteriana onde a escova jamais alcança.</p> },
+              { icon: Clock, title: "Troca da Escova", content: <p className="text-textPrimary/70 text-sm leading-relaxed text-justify">Troque a sua escova a cada <strong>3 meses</strong> ou ao notar desgaste nas cerdas. Escovas velhas acumulam bactérias e perdem a eficiência na remoção da placa bacteriana.</p> },
+              { icon: Award, title: "Cuidados c/ a Prótese", content: <p className="text-textPrimary/70 text-sm leading-relaxed text-justify">Para sua prótese removível durar muito mais, higienize diariamente com escovas macias adequadas e evite pastas muito abrasivas que possam arranhar a resina.</p> }
             ].map((item, i) => (
-              <motion.div key={i} variants={fadeUp} whileHover={{ y: -8 }} className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group">
-                <div className="w-14 h-14 bg-primaryLight/20 rounded-2xl flex items-center justify-center text-primary mb-6 group-hover:scale-110 group-hover:rotate-6 transition-transform"><item.icon size={26} /></div>
-                <h4 className="text-xl font-bold text-primaryDark mb-4">{item.title}</h4>
+              <motion.div key={i} variants={fadeUp} whileHover={{ y: -5 }} className="bg-white p-8 rounded-[1.5rem] shadow-sm border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group flex flex-col justify-start">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="text-primary group-hover:scale-110 transition-transform duration-300">
+                    <item.icon size={26} strokeWidth={1.5} />
+                  </div>
+                  <h4 className="text-lg font-bold text-primaryDark">{item.title}</h4>
+                </div>
                 {item.content}
               </motion.div>
             ))}
@@ -380,7 +397,7 @@ function App() {
                   <InstagramIcon size={20} />
                 </motion.a>
                 <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} href="https://api.whatsapp.com/send?phone=5512974071990" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full bg-primaryLight/20 text-primary flex items-center justify-center hover:bg-gradient-to-r hover:from-primary hover:to-primaryDark hover:text-white transition-all shadow-sm">
-                  <Phone size={20} />
+                  <WhatsAppIcon size={20} />
                 </motion.a>
               </div>
             </div>
@@ -407,8 +424,32 @@ function App() {
         className="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 flex items-center justify-center group"
       >
         <span className="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75 animate-ping"></span>
-        <Phone size={28} className="relative z-10" />
+        <WhatsAppIcon size={28} className="relative z-10" />
       </motion.a>
+
+    {/* Lightbox / Modal de Imagem */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 cursor-zoom-out"
+          >
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              src={selectedImage}
+              alt="Caso Clínico Ampliado"
+              className="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl"
+              onClick={(e) => e.stopPropagation()} // Evita fechar ao clicar na própria imagem
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );

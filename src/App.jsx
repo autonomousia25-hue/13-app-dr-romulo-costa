@@ -327,18 +327,50 @@ function App() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={staggerContainer}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto"
           >
             {[
-              { icon: CheckCircle, title: "Combate ao Mau Hálito", content: <ul className="text-textPrimary/70 text-sm space-y-3 text-justify"><li>• <strong>Beba muita água:</strong> evita a boca seca.</li><li>• <strong>Escove a língua:</strong> foco das bactérias.</li><li>• <strong>Use fio dental:</strong> sempre após refeições.</li><li>• <strong>Dieta:</strong> cuidado com alho e cebola.</li></ul> },
-              { icon: ShieldCheck, title: "O Poder do Fio Dental", content: <p className="text-textPrimary/70 text-sm leading-relaxed text-justify">Você sabia que quando não usamos fio dental, deixamos de limpar <strong>35% da superfície</strong> do dente? Ele é essencial para remover a placa bacteriana onde a escova jamais alcança.</p> },
-              { icon: Clock, title: "Troca da Escova", content: <p className="text-textPrimary/70 text-sm leading-relaxed text-justify">Troque a sua escova a cada <strong>3 meses</strong> ou ao notar desgaste nas cerdas. Escovas velhas acumulam bactérias e perdem a eficiência na remoção da placa bacteriana.</p> },
-              { icon: Award, title: "Cuidados c/ a Prótese", content: <p className="text-textPrimary/70 text-sm leading-relaxed text-justify">Para sua prótese removível durar muito mais, higienize diariamente com escovas macias adequadas e evite pastas muito abrasivas que possam arranhar a resina.</p> }
+              { 
+                icon: CheckCircle, 
+                title: "Combate ao mau hálito", 
+                content: (
+                  <div className="text-textPrimary/70 text-[15px] space-y-4">
+                    <p><strong>Beba muita água</strong> — evita a boca seca.</p>
+                    <p><strong>Escove a língua</strong> — foco das bactérias.</p>
+                    <p><strong>Use fio dental</strong> — sempre após refeições.</p>
+                    <p><strong>Cuidado com a dieta</strong> — alho e cebola em excesso.</p>
+                  </div>
+                )
+              },
+              { 
+                icon: ShieldCheck, 
+                title: "O poder do fio dental", 
+                content: <p className="text-textPrimary/70 text-[15px] leading-relaxed">Quando não usamos fio dental, deixamos de limpar <strong>35%</strong> da superfície do dente. Ele remove a placa bacteriana onde a escova jamais alcança.</p> 
+              },
+              { 
+                icon: Clock, 
+                title: "Troca da escova", 
+                content: <p className="text-textPrimary/70 text-[15px] leading-relaxed">Troque a sua escova a cada <strong>3 meses</strong>, ou ao notar desgaste nas cerdas. Escovas velhas acumulam bactérias e perdem eficiência.</p> 
+              },
+              { 
+                icon: Award, 
+                title: "Cuidados com a prótese", 
+                content: <p className="text-textPrimary/70 text-[15px] leading-relaxed">Higienize diariamente com escovas macias adequadas e evite pastas abrasivas que possam arranhar a resina.</p> 
+              }
             ].map((item, i) => (
-              <motion.div key={i} variants={fadeUp} whileHover={{ y: -5 }} className="bg-white p-8 rounded-[1.5rem] shadow-sm border border-gray-100 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group flex flex-col justify-start">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="text-primary group-hover:scale-110 transition-transform duration-300">
-                    <item.icon size={26} strokeWidth={1.5} />
+              <motion.div 
+                key={i} 
+                variants={fadeUp} 
+                className={`p-8 md:p-12 flex flex-col justify-start bg-transparent
+                  ${i === 0 ? 'md:border-r md:border-b border-gray-200 border-b' : ''}
+                  ${i === 1 ? 'md:border-b border-gray-200 border-b' : ''}
+                  ${i === 2 ? 'md:border-r border-gray-200 border-b md:border-b-0' : ''}
+                  ${i === 3 ? '' : ''}
+                `}
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="text-primary">
+                    <item.icon size={22} strokeWidth={1.5} />
                   </div>
                   <h4 className="text-lg font-bold text-primaryDark">{item.title}</h4>
                 </div>

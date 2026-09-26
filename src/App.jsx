@@ -482,14 +482,12 @@ function App() {
             <div className="md:col-span-4">
               <h4 className="font-bold text-[17px] text-primaryDark mb-6 flex items-center gap-2"><MapPin size={18} className="text-primary"/> Localização</h4>
               <p className="text-textPrimary/70 text-[15px] leading-relaxed mb-6">
-                Rua Icatú, 530, sala 13<br />
-                Parque Industrial<br />
-                São José dos Campos (SP)<br />
-                CEP: 12237-010
+                Rua Icatú, 530, Cj R Trinta Um Marco<br />
+                São José dos Campos SP, 12237-010, Brasil
               </p>
-              <div className="flex items-center gap-6">
-                <a href="https://www.google.com/maps/search/?api=1&query=Rua+Icatu,+530+-+Parque+Industrial,+Sao+Jose+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors underline-offset-4 hover:underline">Abrir no Google Maps</a>
-                <a href="https://waze.com/ul?q=Rua+Icatu,+530+-+Parque+Industrial,+Sao+Jose+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors underline-offset-4 hover:underline">Navegar pelo Waze</a>
+              <div className="flex justify-center md:justify-start items-center gap-6">
+                <a href="https://www.google.com/maps/search/?api=1&query=Rua+Icat%C3%BA,+530,+Cj+R+Trinta+Um+Marco,+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors underline-offset-4 hover:underline">Abrir no Google Maps</a>
+                <a href="https://waze.com/ul?q=Rua+Icat%C3%BA,+530,+Cj+R+Trinta+Um+Marco,+S%C3%A3o+Jos%C3%A9+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors underline-offset-4 hover:underline">Navegar pelo Waze</a>
               </div>
             </div>
 
@@ -497,7 +495,8 @@ function App() {
             <div className="md:col-span-4">
               <h4 className="font-bold text-[17px] text-primaryDark mb-6 flex items-center gap-2"><Clock size={18} className="text-primary"/> Contato e horários</h4>
               <ul className="space-y-4 text-[15px] text-textPrimary/70 font-medium">
-                <li className="flex justify-between border-b border-gray-200 pb-3"><span>Seg a sex</span> <span className="font-bold text-primaryDark">08:00 às 18:00</span></li>
+                <li className="flex justify-between border-b border-gray-200 pb-3"><span>Seg a sex</span> <span className="font-bold text-primaryDark">08:00 às 19:00</span></li>
+                <li className="flex justify-between border-b border-gray-200 pb-3"><span>Sábado</span> <span className="font-bold text-primaryDark">08:00 às 12:00</span></li>
                 <li className="flex justify-between border-b border-gray-200 pb-3">
                   <span>Fixo</span> 
                   <a href="tel:+551239330821" className="font-bold text-primaryDark hover:text-primary transition-colors hover:underline">(12) 3933-0821</a>
@@ -531,7 +530,7 @@ function App() {
         href={getWhatsAppLink()} 
         target="_blank" 
         rel="noreferrer" 
-        className="fixed bottom-24 md:bottom-6 right-4 md:right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 flex items-center justify-center group"
+        className="hidden md:flex fixed bottom-24 md:bottom-6 right-4 md:right-6 bg-[#25D366] text-white p-4 rounded-full shadow-2xl z-50 items-center justify-center group"
       >
         <span className="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75 animate-ping"></span>
         <WhatsAppIcon size={28} className="relative z-10" />

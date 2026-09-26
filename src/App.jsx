@@ -51,6 +51,29 @@ const MaskedIcon = ({ src, size = 32, className = "" }) => (
   />
 );
 
+const TopBarMarquee = () => (
+  <div className="w-full bg-primaryDark text-white overflow-hidden py-2 relative z-50">
+    <motion.div
+      animate={{ x: ["0%", "-50%"] }}
+      transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+      className="flex whitespace-nowrap w-max"
+    >
+      {[...Array(2)].map((_, i) => (
+        <div key={i} className="flex items-center gap-8 px-4 text-[13px] md:text-sm font-medium tracking-wide">
+          <span className="flex items-center gap-1.5 text-white"><MapPin size={15} className="text-primaryLight" /> Rua Icatú, 530, Cj R Trinta Um Marco - São José dos Campos SP</span>
+          <span className="text-white/30">•</span>
+          <span className="flex items-center gap-1.5 text-white"><Clock size={15} className="text-primaryLight" /> Seg a Sex: 08:00 às 19:00 | Sáb: 08:00 às 12:00</span>
+          <span className="text-white/30">•</span>
+          <span className="flex items-center gap-1.5 text-white"><Phone size={15} className="text-primaryLight" /> (12) 3933-0821</span>
+          <span className="text-white/30">•</span>
+          <span className="flex items-center gap-1.5 text-white"><WhatsAppIcon size={15} className="text-[#25D366]" /> (12) 97407-1990</span>
+          <span className="text-white/30 px-2">•</span>
+        </div>
+      ))}
+    </motion.div>
+  </div>
+);
+
 const OrtodontiaIcon = (props) => <MaskedIcon src="/tratamentos/ortodontia.png" {...props} />;
 const ImplantesIcon = (props) => <MaskedIcon src="/tratamentos/implantes.png" {...props} />;
 const EndodontiaIcon = (props) => <MaskedIcon src="/tratamentos/endodontia.png" {...props} />;
@@ -115,6 +138,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-textPrimary scroll-smooth pb-20 md:pb-0">
+      <TopBarMarquee />
       {/* Navbar (Nielsen Heuristics: Clear Navigation & Consistency) */}
       <motion.nav 
         initial={{ y: -100 }}

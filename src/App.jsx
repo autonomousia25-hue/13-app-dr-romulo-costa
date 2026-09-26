@@ -401,8 +401,8 @@ function App() {
             
             {/* Branding */}
             <div className="md:col-span-4">
-              <div className="flex items-center gap-3 mb-6">
-                <ToothIcon size={28} className="text-primary" />
+              <div className="flex items-center gap-4 mb-6">
+                <img src="/logo-oficial.jpg" alt="Dr. Rômulo Costa" className="h-14 w-14 rounded-full object-cover border-2 border-primaryLight shadow-sm" />
                 <div className="flex flex-col">
                   <span className="font-extrabold text-xl text-primaryDark leading-tight">Dr. Rômulo Costa</span>
                   <span className="text-[11px] font-bold tracking-wider text-primary uppercase">CROSP 101.185</span>
@@ -427,8 +427,8 @@ function App() {
                 CEP: 12237-010
               </p>
               <div className="flex items-center gap-6">
-                <a href="https://www.google.com/maps/search/?api=1&query=Rua+Icatu,+530+-+Parque+Industrial,+Sao+Jose+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors">Abrir no Google Maps</a>
-                <a href="https://waze.com/ul?q=Rua+Icatu,+530+-+Parque+Industrial,+Sao+Jose+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors">Navegar pelo Waze</a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Rua+Icatu,+530+-+Parque+Industrial,+Sao+Jose+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors underline-offset-4 hover:underline">Abrir no Google Maps</a>
+                <a href="https://waze.com/ul?q=Rua+Icatu,+530+-+Parque+Industrial,+Sao+Jose+dos+Campos+-+SP,+12237-010" target="_blank" rel="noreferrer" className="text-[15px] font-bold text-primary hover:text-primaryDark transition-colors underline-offset-4 hover:underline">Navegar pelo Waze</a>
               </div>
             </div>
 
@@ -439,11 +439,11 @@ function App() {
                 <li className="flex justify-between border-b border-gray-200 pb-3"><span>Seg a sex</span> <span className="font-bold text-primaryDark">08:00 às 18:00</span></li>
                 <li className="flex justify-between border-b border-gray-200 pb-3">
                   <span>Fixo</span> 
-                  <a href="tel:+551239330821" className="font-bold text-primaryDark hover:text-primary transition-colors">(12) 3933-0821</a>
+                  <a href="tel:+551239330821" className="font-bold text-primaryDark hover:text-primary transition-colors hover:underline">(12) 3933-0821</a>
                 </li>
                 <li className="flex justify-between border-b border-gray-200 pb-3">
                   <span>WhatsApp</span> 
-                  <a href="https://api.whatsapp.com/send?phone=5512974071990" target="_blank" rel="noreferrer" className="font-bold text-primaryDark hover:text-primary transition-colors">(12) 97407-1990</a>
+                  <a href="https://api.whatsapp.com/send?phone=5512974071990" target="_blank" rel="noreferrer" className="font-bold text-primaryDark hover:text-primary transition-colors hover:underline">(12) 97407-1990</a>
                 </li>
               </ul>
             </div>
@@ -453,8 +453,8 @@ function App() {
             <p className="text-textPrimary/40 text-[13px] font-medium">
               © {new Date().getFullYear()} Dr. Rômulo Costa — Odontologia
             </p>
-            <p className="text-textPrimary/40 text-[13px] font-medium mt-4 md:mt-0">
-              Desenvolvido por <a href="https://autonomousai.com.br/" target="_blank" rel="noreferrer" className="hover:text-primaryDark font-bold transition-colors">AIA</a>
+            <p className="text-textPrimary/40 text-[13px] font-medium mt-4 md:mt-0 md:pr-24">
+              Desenvolvido por <a href="https://autonomousai.com.br/" target="_blank" rel="noreferrer" className="text-primary hover:text-primaryDark font-bold transition-colors underline underline-offset-4 relative z-50">AIA</a>
             </p>
           </div>
         </div>

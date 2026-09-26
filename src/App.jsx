@@ -109,8 +109,8 @@ function App() {
                {/* Decorative background shape */}
                <div className="absolute inset-0 bg-gradient-to-tr from-primary to-primaryLight rounded-3xl transform rotate-3 scale-105 opacity-20"></div>
                
-               <div className="relative rounded-3xl shadow-2xl bg-white p-8 border-4 border-white aspect-square flex items-center justify-center">
-                  <img src="/logo-oficial.jpg" alt="Clínica Sorriso" className="w-full h-full object-contain opacity-90 rounded-2xl" />
+               <div className="relative rounded-3xl shadow-2xl bg-white p-2 border-4 border-white aspect-square flex items-center justify-center overflow-hidden">
+                  <img src="/drromulocosta_hero-section.jpg" alt="Dr. Rômulo Costa" className="w-full h-full object-cover rounded-2xl" />
                </div>
             </div>
 
